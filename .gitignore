@@ -1,0 +1,131 @@
+# ==============================
+# 🌸 Root Combined .gitignore
+# ==============================
+
+# === OS / System Files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# === IDE / Editor ===
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ==============================
+# 🧠 BACKEND (Spring Boot)
+# ==============================
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs
+*.log
+logs/
+*.out
+
+# Temporary / Cache
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# Environment / Config
+.env
+*.properties
+application-*.yml
+application-*.yaml
+!application-example.yml
+
+# JVM
+*.class
+hs_err_pid*
+replay_pid*
+
+# ==============================
+# ⚡ FRONTEND (Angular)
+# ==============================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Build output
+dist/
+tmp/
+out-tsc/
+coverage/
+
+# Angular environment files
+src/environments/environment.ts
+src/environments/environment.prod.ts
+!src/environments/environment.example.ts
+
+# IDE specific
+*.orig
+
+# ==============================
+# 🐋 DOCKER
+# ==============================
+*.pid
+*.bak
+*.tar
+*.gz
+docker-compose.override.yml
+
+# ==============================
+# 🧱 DATABASE & DATA
+# ==============================
+*.db
+*.sql
+*.sqlite
+*.h2.db
+*.mv.db
+mysql-data/
+postgres-data/
+
+# ==============================
+# 🔍 TESTS / REPORTS
+# ==============================
+test-output/
+surefire-reports/
+coverage-final.json
+karma-coverage/
+jest-coverage/
+*.lcov
+
+# ==============================
+# 🪶 MISC
+# ==============================
+*.log
+*.tmp
+*.bak
+*.swp
+*.orig
