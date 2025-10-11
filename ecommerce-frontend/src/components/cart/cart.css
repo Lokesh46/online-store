@@ -1,0 +1,20 @@
+.quantity-group {
+  max-width: 140px;
+  display: flex;
+  align-items: center;
+}
+.btn-sm {
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+td .btn-outline-secondary {
+  font-size: 1rem;
+}
+
+td span {
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+}

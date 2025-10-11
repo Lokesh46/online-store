@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="mb-4">Browse Categories</h2>
+
+  <div class="row">
+    <ng-container *ngTemplateOutlet="renderCategories; context: { categories: categories, level: 0 }"></ng-container>
+  </div>
+
+  <ng-template #renderCategories let-categories="categories" let-level="level">
+    <ng-container *ngFor="let cat of categories">
+      <div class="col-md-4 mb-4">
+        <div
+          class="card category-card text-white"
+          [ngStyle]="{ 'background-color': getColorByLevel(level) }"
+          (click)="goToCategory(cat.id)"
+        >
+          <div class="card-body">
+            <h5 class="card-title">{{ cat.name }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 ms-4">
+        <div class="row">
+          <ng-container *ngIf="cat.children?.length">
+            <ng-container
+              *ngTemplateOutlet="renderCategories; context: { categories: cat.children, level: level + 1 }"
+            ></ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div *ngIf="product" class="card mb-4">
+    <div class="card-body">
+      <h3 class="card-title">{{ product.name }}</h3>
+      <p class="card-text">Price: <strong>${{ product.price.toFixed(2) }}</strong></p>
+      <p *ngIf="product.availabilityQty > 0" class="text-success">In Stock</p>
+      <p *ngIf="product.availabilityQty === 0" class="text-danger">Out of Stock</p>
+      <button
+            class="btn btn-primary btn-sm"
+            [disabled]="product.availabilityQty <= 0"
+            (click)="addToCart(product.id); $event.stopPropagation()"
+          >
+            Add to Cart
+          </button>
+    </div>
+  </div>
+
+  <hr class="my-5" />
+  <h4 class="mb-3">Related Products</h4>
+
+  <div *ngIf="relatedProducts.length > 0; else noRelated" class="row">
+    <div *ngFor="let related of relatedProducts" class="col-md-4 mb-4">
+      <div
+        class="card h-100"
+        style="cursor: pointer;"
+        [routerLink]="['/product', related.id]"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ related.name }}</h5>
+          <p class="card-text">${{ related.price.toFixed(2) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noRelated>
+    <div class="alert alert-warning">No related products found.</div>
+  </ng-template>
+</div>

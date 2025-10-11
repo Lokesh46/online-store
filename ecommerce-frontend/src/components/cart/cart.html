@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ errorMessage }}
+  <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Close"></button>
+</div>
+
+      <h2 class="card-title mb-4 text-primary">🛒 Your Cart</h2>
+
+      <div *ngIf="cart.length > 0; else emptyCart">
+        <div class="table-responsive">
+          <table class="table align-middle table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th class="text-center" style="width: 160px;">Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cart">
+                <td><strong>{{ item.productName }}</strong></td>
+                <td class="text-success">${{ item.unitPrice.toFixed(2) }}</td>
+
+                <td class="text-center">
+                  <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-secondary" (click)="decreaseQuantity(item)" [disabled]="item.quantity <= 1">
+                      <i class="bi bi-dash"></i>
+                    </button>
+                    <button type="button" class="btn btn-light disabled">{{ item.quantity }}</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="increaseQuantity(item)">
+                      <i class="bi bi-plus"></i>
+                    </button>
+                  </div>
+                </td>
+
+                <td><strong>${{ (item.unitPrice * item.quantity).toFixed(2) }}</strong></td>
+
+                <td class="text-end">
+                  <button class="btn btn-sm btn-outline-danger" (click)="removeItem(item)">
+                    <i class="bi bi-trash"></i> Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-end mt-4">
+          <h5 class="text-dark">Grand Total: <span class="text-success">${{ getTotal().toFixed(2) }}</span></h5>
+        </div>
+      </div>
+
+      <ng-template #emptyCart>
+        <div class="alert alert-info">
+          Your cart is empty.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

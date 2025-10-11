@@ -1,0 +1,18 @@
+.category-item {
+  cursor: pointer;
+}
+
+.category-item:hover {
+  background-color: #f1f1f1;
+}
+
+.category-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  border-radius: 10px;
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
