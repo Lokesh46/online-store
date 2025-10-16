@@ -1,5 +1,5 @@
-# Stage 1: Build Angular app
-FROM node:18 AS build
+# Stage 1: Build Angular app with Node 20
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 
 # Build Angular app for production
-RUN node -v && npm -v && npm run build
+RUN npm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
