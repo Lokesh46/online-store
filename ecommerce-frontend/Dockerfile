@@ -9,12 +9,12 @@ RUN npm install
 COPY . .
 
 # Build Angular app for production
-RUN npm run build -- --prod
+RUN npm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
 
-COPY --from=build /app/dist/your-angular-app-name /usr/share/nginx/html
+COPY --from=build /app/dist/ecommerce-frontend /usr/share/nginx/html
 
 EXPOSE 80
 
