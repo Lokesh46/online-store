@@ -11,6 +11,9 @@ COPY . .
 # Build Angular app for production
 RUN npm run build
 
+# Debug: List contents of dist folder to verify build output
+RUN ls -l /app/dist
+
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
 
