@@ -24,7 +24,7 @@ export interface Product {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8081'; 
+  private baseUrl = 'https://backend-0g1z.onrender.com';
 
   constructor(private http: HttpClient) {}
 
@@ -81,7 +81,7 @@ removeFromCart(productId: number, userId: number = 1): Observable<void> {
   return this.http.delete<void>(`${this.baseUrl}/cart/remove`, { params });
 }
 
-  
+
 
 
 }
