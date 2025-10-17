@@ -7,13 +7,17 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "src",  // Ensure this points to your 'src' directory
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
+            "outputPath": {
+              "base": "dist/ecommerce-frontend",
+              "browser": ""
+            },
+            "index": "src/index.html",
             "polyfills": [
               "zone.js"
             ],
@@ -29,15 +33,13 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ]
-
-
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "900kB",
                   "maximumError": "1MB"
                 },
                 {
@@ -46,7 +48,11 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,  // Enable production optimizations
+              "sourceMap": false,    // Disable source maps for production
+              "aot": true,           // Enable Ahead-of-Time Compilation (AOT)
+              "extractLicenses": true  // Extract licenses into a separate file
             },
             "development": {
               "optimization": false,
